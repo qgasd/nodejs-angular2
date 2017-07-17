@@ -1,0 +1,26 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]" class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>
+<table class="table table-striped">
+	<tr>
+		<td>1</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>1</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>1</td>
+	</tr>
+</table>
+<button type="button" class="btn btn-default">默认按钮</button>
+<button type="button" class="btn btn-primary">原始按钮</button>
+<button type="button" class="btn btn-success">成功按钮</button>
+<hero-search></hero-search>
