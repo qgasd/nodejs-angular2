@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
-
+  model : any = {};
     constructor(public router: Router) { }
 
     ngOnInit() { }
@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
     onLoggedin() {
        console.info();
         localStorage.setItem('isLoggedin', 'true');
-        
+        if(this.model.name != null && this.model.password != null){
         this.router.navigate(['/dashboard']);
+        }
        
         
     }
