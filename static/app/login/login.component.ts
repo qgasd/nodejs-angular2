@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/index';
 
 @Component({
     selector: 'app-login',
@@ -9,11 +10,23 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-    constructor(public router: Router) { }
+    constructor(
+        public router: Router,
+        private loginService:LoginService,
+    ) { }
 
     ngOnInit() { }
 
     onLoggedin(name:string,password:string) {
+        this.loginService.login(name,password).subscribe(
+            data=>{
+                this.router.navigate(['/dashboard']);
+            },
+            error=>{
+                alert("验证失败");
+            }
+        );
+
         // var express = require('express');
         // var app = express();
         
@@ -29,8 +42,10 @@ export class LoginComponent implements OnInit {
         // console.log("应用实例，访问地址为 http://%s:%s", host, port)
         
         // })
+        let user:[string,number];
+        user=["kuba",123];
         if(name){
-            alert("名字是："+name+",密码是："+password);
+
         }
        console.info();
         localStorage.setItem('isLoggedin', 'true');
