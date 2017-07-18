@@ -49,8 +49,9 @@ export class LoginComponent implements OnInit {
         }
        console.info();
         localStorage.setItem('isLoggedin', 'true');
-        
+        if(name != null && password != null){
         this.router.navigate(['/dashboard']);
+        }
        
         
     }
