@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
      <a routerLink="/dashboard">Dashboard</a>
      <a routerLink="/heroes">Heroes</a>
      <a routerLink="/login">登录</a>
+     <a routerLink="/update-password">修改密码</a>
    </nav>
    <router-outlet></router-outlet>
  `,
