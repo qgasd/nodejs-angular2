@@ -1,0 +1,20 @@
+ <nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid"> 
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">导航</a>
+    </div>
+    <div>
+         <ul class="nav navbar-nav" *ngFor="let m of menus">
+            <li class=""><a href="javascript:void(0)" *ngIf="m.children.length<1">{{m.title}}</a></li>
+            <li class="dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle *ngIf="m.children.length>0">
+                    {{m.title}} <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" *ngFor="let c of m.children">
+                    <li class="dropdown-item" ><a href="javascript:void(0)">{{c.title}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+	</div>
+</nav>

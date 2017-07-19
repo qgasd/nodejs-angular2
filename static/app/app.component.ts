@@ -1,20 +1,20 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
+import { Menu } from "./menu/menu";
+import { Http } from "@angular/http";
+
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  template: `
-   <h1>{{title}}</h1>
-   <nav>
-     <a routerLink="/dashboard">Dashboard</a>
-     <a routerLink="/heroes">Heroes</a>
-     <a routerLink="/login">登录</a>
-     <a routerLink="/update-password">修改密码</a>
-   </nav>
-   <router-outlet></router-outlet>
- `,
-  styleUrls: ['app.component.css']
-
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css'],
 })
-export class AppComponent {
-  title = 'Tour of Heroes';
+export class AppComponent implements OnInit{
+   public menus:Menu[];
+    constructor(public http: Http) { 
+        http.get('../app/menu/menu.json').subscribe(res =>
+        this.menus = res.json());
+    }
+  ngOnInit() {
+
+  }
 }

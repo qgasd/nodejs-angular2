@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+        <ul class="nav navbar-nav" *ngFor="let m of menus">
+            <li><a href="#" *ngIf="m.children.length<1">{{m.title}}</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" *ngIf="m.children.length>0">
+                    {{m.title}} <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li *ngFor="let c of m.children"><a routerLink='{{c.routerlink}}' href="#">{{c.title}}</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right"> 
+            <li><a href="#"> 注销</a></li> 
+            <li><a href="#"> 登录</a></li> 
+        </ul>   
+   
+     <a routerLink="/dashboard">Dashboard</a>
+     <a routerLink="/heroes">Heroes</a>
+     <a routerLink="/login">登录</a>
+	</div>
+</nav> 
+<router-outlet></router-outlet>
